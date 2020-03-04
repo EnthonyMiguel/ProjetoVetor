@@ -1,0 +1,85 @@
+package vetores;
+
+public class Vetor {
+	private String[] elementos;
+	private int tamanho;
+
+	public Vetor(int capacidade){
+		this.elementos = new String[capacidade];
+		this.tamanho = 0;
+	}
+	/*public void adiciona(String elemento){
+	      for (int i = 0; i<this.elementos.length; i++){
+	        if(this.elemntos[i]== null){
+	          this.elementos[i] = elemento;
+	          break;
+	        }
+
+	      }
+	    }*/
+	/*public void adiciona(String elemento)throws Execption{
+	      if(this.tamanho<this.elemetnos.length){
+	        this.elementos[this.tamanho] = elemento;
+	        this.tamanho++;
+	      } else {
+	        throw new Exception("Vetor já está cheio, não é possível adiconar mais elementos");
+	      }
+
+	    }*/
+	public boolean adiciona(String elemento){ //Adcionar elemento em um vetor
+		if(this.tamanho<this.elementos.length){
+			this.elementos[this.tamanho] = elemento;
+			this.tamanho++;
+			return true;
+		} 
+		return false;
+	}
+	public String busca(int posicao){//busca por elemento de uma posição especifica do vetor
+		if(!(posicao-1>=0 && posicao-1<tamanho)){
+			throw new IllegalArgumentException("posição invalida");
+		} 
+		return this.elementos[posicao - 1];
+	}
+
+	/*public boolean busca(String elemento){  //busca por elemento em específico
+	      for(int i = 0; i<this.tamanho; i++){
+	        if(this.elementos[i].equals(elemento)){
+	          return true;
+
+	        }
+	      }
+	      return false;
+	    }*/
+
+	public int busca(String elemento){  //busca por elemento em específico mais elegante
+		for(int i = 0; i<this.tamanho; i++){
+			if(this.elementos[i].equals(elemento)){
+				return i;
+
+			}
+		}
+		return -1;
+	}
+
+	public int tamanho(){ //Verificar tamanho de um vetor
+		System.out.println(this.tamanho);
+		return this.tamanho;
+	}
+	@Override
+	public String toString(){ //Imprimir elementos de um vetor
+		StringBuilder s = new StringBuilder();
+		s.append("[");
+		for (int i = 0; i<this.tamanho-1; i++){
+			s.append(this.elementos[i]);
+		}
+		if(this.tamanho>0){
+			s.append(this.elementos[this.tamanho-1]);
+		}
+		s.append("]");
+		return s.toString();
+	}	
+	
+	
+	
+	
+}
