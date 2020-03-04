@@ -1,0 +1,16 @@
+package vetores;
+
+public class VetorMain {
+	public static void main(String[] args) {
+		Vetor vetor = new Vetor(5);
+		
+		vetor.adiciona("Arroz");
+		vetor.adiciona("feijão");
+		
+		vetor.tamanho();
+		System.out.println(vetor.busca(2));
+		vetor.busca("Arroz");
+	
+	}
+
+}
